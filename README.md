@@ -19,9 +19,9 @@ This application allows users to log in with their Spotify account and view thei
 5. Add a Redirect URI (`http://localhost:8888/callback`) in the app settings.
 
 ### 2. Clone the Repository
+```bash
+git clone https://github.com/yourusername/spotify-top-artists-viewer.git
+cd spotify-top-artists-viewer
 
-bash
-'git clone https://github.com/yourusername/spotify-top-artists-viewer.git'
-'cd spotify-top-artists-viewer' or 'Set-Location spotify-top-artists-viewer'
 
 ### 3. Install Dependencies
