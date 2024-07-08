@@ -1,0 +1,21 @@
+{
+  "name": "spotify-most-listened-playlists",
+  "version": "1.0.0",
+  "description": "A simple app to display the most listened playlists on Spotify.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "request": "^2.88.2",
+    "crypto": "^1.0.1",
+    "cors": "^2.8.5",
+    "querystring": "^0.2.0",
+    "cookie-parser": "^1.4.5",
+    "http-server": "^14.1.1",
+    "open": "^8.4.0"
+  },
+  "author": "Your Name",
+  "license": "ISC"
+}
