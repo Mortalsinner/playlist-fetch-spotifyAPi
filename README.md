@@ -1,7 +1,7 @@
 # Spotify Top Artists Viewer
 
 <h1>Configuration</h1>
-This application allows users to log in with their Spotify account and view their top artists. The application uses the Spotify Web API to fetch and display the user's top artists.
+This application allows users to log in with their Spotify account and fetch their playlist. The application uses the Spotify Web API to fetch and display the user's playlist.
 
 ## Prerequisites
 
