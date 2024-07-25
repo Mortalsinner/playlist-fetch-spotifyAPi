@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playlists I Made</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,9 +19,12 @@
     </style>
 </head>
 <body>
-    <h1>Playlists I Made</h1>
-    <button id="loginButton">Log in with Spotify</button>
-    <div id="playlists"></div>
+    <center>
+        <h1 class="mt-10">Playlists I Made</h1>
+        <button id="loginButton" class="btn btn-success mt-9" style="border-radius: 50px;
+            border-color: none;">Log in with Spotify</button>
+        <div id="playlists"></div>
+    </center>
 
     <script src="script.js"></script>
 </body>

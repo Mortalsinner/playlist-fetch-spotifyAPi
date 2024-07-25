@@ -11,49 +11,55 @@ function getAccessToken() {
     return null;
 }
 
-async function fetchTopArtists(accessToken) {
+async function fetchUserPlaylists(accessToken) {
     try {
-        const response = await fetch('https://api.spotify.com/v1/me/top/artists?limit=20', {
-            headers: {
-                'Authorization': `Bearer ${accessToken}`
-            }
-        });
-        const data = await response.json();
-        console.log('Top artists:', data.items);
-        return data.items;
+        let playlists = [];
+        let url = 'https://api.spotify.com/v1/me/playlists?limit=50';
+        while (url) {
+            const response = await fetch(url, {
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`
+                }
+            });
+            const data = await response.json();
+            playlists = playlists.concat(data.items);
+            url = data.next; // Get the next URL for pagination
+        }
+        console.log('User playlists:', playlists);
+        return playlists;
     } catch (error) {
-        console.error('Error fetching top artists:', error);
+        console.error('Error fetching user playlists:', error);
         return [];
     }
 }
 
-function displayArtists(artists) {
-    const artistsContainer = document.getElementById('artists');
-    artistsContainer.innerHTML = '';
+function displayPlaylists(playlists) {
+    const playlistsContainer = document.getElementById('playlists');
+    playlistsContainer.innerHTML = '';
 
-    artists.forEach(artist => {
-        const artistDiv = document.createElement('div');
-        artistDiv.className = 'artist';
-        artistDiv.innerHTML = `
-            <img src="${artist.images[0]?.url}" alt="${artist.name}" width="100">
-            <strong>${artist.name}</strong>
+    playlists.forEach(playlist => {
+        const playlistDiv = document.createElement('div');
+        playlistDiv.className = 'playlist';
+        playlistDiv.innerHTML = `
+            <img src="${playlist.images[0]?.url}" alt="${playlist.name}" width="100">
+            <strong>${playlist.name}</strong>
         `;
-        artistsContainer.appendChild(artistDiv);
+        playlistsContainer.appendChild(playlistDiv);
     });
 }
 
-async function getTopArtists() {
+async function getUserPlaylists() {
     const accessToken = getAccessToken();
     if (!accessToken) {
         console.error('Access token not found');
         return;
     }
 
-    const artists = await fetchTopArtists(accessToken);
-    displayArtists(artists);
+    const playlists = await fetchUserPlaylists(accessToken);
+    displayPlaylists(playlists);
 }
 
-// Check for access token and fetch top artists if available
+// Check for access token and fetch playlists if available
 if (getAccessToken()) {
-    getTopArtists();
+    getUserPlaylists();
 }
