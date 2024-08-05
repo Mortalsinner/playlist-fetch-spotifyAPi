@@ -41,8 +41,17 @@ function displayPlaylists(playlists) {
         const playlistDiv = document.createElement('div');
         playlistDiv.className = 'playlist';
         playlistDiv.innerHTML = `
-            <img src="${playlist.images[0]?.url}" alt="${playlist.name}" width="100">
-            <strong>${playlist.name}</strong>
+
+        <div class="card bg-base-100 w-96 shadow-xl">
+            <figure>
+                   <img src="${playlist.images[0]?.url}" alt="${playlist.name}" width="100">
+            </figure>
+            <div class="card-body">
+                <strong>${playlist.name}</strong>
+                </div>
+            </div>
+        </div>
+    
         `;
         playlistsContainer.appendChild(playlistDiv);
     });

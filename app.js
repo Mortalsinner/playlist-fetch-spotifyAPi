@@ -7,8 +7,8 @@ const cookieParser = require('cookie-parser');
 const httpServer = require('http-server');
 const open = require('open');
 
-const client_id = your_client_id; // your clientId
-const client_secret = your_client_secret; // Your secret
+const client_id = '0b1f12dca07740e18bf3d8b416443577'; // your clientId
+const client_secret = 'ff0d39ced65146d8865a295744a2dc59'; // Your secret
 const redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
 
 const generateRandomString = (length) => {
